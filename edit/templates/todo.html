@@ -1,0 +1,19 @@
+<h1> Sivakumar </h1>
+
+
+<ul>
+    {% for todo_item in king %}
+    <li>{{ todo_item.contents }}
+            <form action="/deleteTodo/{{todo_item.id}}" 
+            style="display : inline;"
+            method="POST">{% csrf_token %}
+                <input type="submit" value="Delete"/>
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="/addTodo/" method="POST">{% csrf_token %}
+    <input type="text" name="contents"/>
+    <input type="submit" value="Add"/>
+
+</form>
